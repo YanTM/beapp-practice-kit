@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Choose a short Brain Exercise App session, learn what to do, and keep a simple manual journal of your results.">
+<meta name="theme-color" content="#4F6FED"><title>BEAPP Practice Kit — Plan a small session</title>
+<link rel="icon" href="assets/brand-logo.webp"><link rel="stylesheet" href="style.css">
+<script defer src="planner.js"></script><script defer src="app.js"></script>
+</head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header wrap">
+<a class="brand" href="https://brainexerciseapp.com/"><img src="assets/brand-logo.webp" width="36" height="36" alt=""><span>Brain Exercise App<small>Practice Kit</small></span></a>
+<nav aria-label="Main navigation"><a href="#planner">Plan a session</a><a href="#journal">Your journal</a><a class="button primary" href="https://brainexerciseapp.com/brain-check/" target="_blank" rel="noopener">Open Brain Check ↗</a></nav>
+</header>
+<main id="main" class="wrap">
+<section class="hero"><div>
+<span class="eyebrow">A SMALL STEP YOU CAN FINISH</span><h1>A little practice.<br><span>A clear next step.</span></h1>
+<p class="lead">Choose a short session. Know what to do. Keep a note of your result and come back when it suits you.</p>
+<div class="actions"><a class="button primary" href="#planner">Build my session ↓</a><a class="button" href="https://brainexerciseapp.com/daily-brain-training/" target="_blank" rel="noopener">Open Daily Training ↗</a></div>
+<p class="micro">No account needed for this kit · Your journal stays in this browser</p></div>
+<img class="hero-art" src="assets/hero.webp" width="640" height="640" alt="The BEAPP brain character with memory, attention, reaction, and thinking activities"></section>
+<section id="planner" class="section">
+<div class="section-heading"><div><span class="eyebrow">START WITH WHAT FITS TODAY</span><h2>Your first session</h2></div><p>Pick a little time and a skill area. The plan is a starting suggestion; each exercise opens on BEAPP.</p></div>
+<div class="planner-layout card"><form id="plan-form">
+<fieldset><legend>How much time do you have?</legend><div class="choices">
+<label><input type="radio" name="minutes" value="2"><span>2 minutes</span></label>
+<label><input type="radio" name="minutes" value="5" checked><span>5 minutes</span></label>
+<label><input type="radio" name="minutes" value="8"><span>8 minutes</span></label>
+</div></fieldset>
+<fieldset><legend>What would you like to explore?</legend><div class="focus-choices">
+<label><input type="radio" name="focus" value="mixed" checked><span>A bit of everything</span></label>
+<label><input type="radio" name="focus" value="memory"><span><img src="assets/memory.svg" alt="">Memory</span></label>
+<label><input type="radio" name="focus" value="attention"><span><img src="assets/attention.svg" alt="">Attention</span></label>
+<label><input type="radio" name="focus" value="reaction"><span><img src="assets/reaction.svg" alt="">Reaction</span></label>
+<label><input type="radio" name="focus" value="thinking"><span><img src="assets/thinking.svg" alt="">Thinking</span></label>
+</div></fieldset><p class="micro">Time is an estimate, including reading the rules. Finish one attempt at your own pace. Taking a break is fine.</p>
+</form><div class="session" id="session" aria-live="polite"></div></div>
+<div class="week-tools"><label for="week-start">Start date for your 7-day plan<input id="week-start" type="date" required></label><button class="button" id="download-week" type="button">Download my plan · CSV</button><button class="text-button" id="print-plan" type="button">Print this page</button><span class="status" id="week-status" role="status"></span></div>
+</section>
+<section id="guide" class="section"><div class="section-heading"><div><span class="eyebrow">KNOW THE TASK FIRST</span><h2>Simple rules. A useful result.</h2></div><p>Start with the rules inside the test. These short notes explain what to watch for and what to write down.</p></div><div class="exercise-grid" id="exercise-guide"></div></section>
+<section id="journal" class="section"><div class="section-heading"><div><span class="eyebrow">COMPARE LIKE WITH LIKE</span><h2>Your practice journal</h2></div><p>Copy the result shown after an attempt. Use the same task, difficulty, device, and input method for a fair comparison.</p></div>
+<div class="journal-layout"><form id="result-form" class="card"><h3>Add one result</h3>
+<div class="form-row"><label>Date<input type="date" id="result-date" required></label><label>Exercise<select id="result-task" required></select></label></div>
+<label><span id="value-label">Result</span><input id="result-value" type="number" step="any" required inputmode="decimal"></label><p id="value-help" class="micro"></p>
+<label>Difficulty, device, and input method<input id="result-condition" type="text" maxlength="120" placeholder="For example: level 3 · laptop · mouse" required></label>
+<label>Notes <span class="optional">(optional)</span><textarea id="result-notes" maxlength="500" rows="2" placeholder="For example: one early click; interrupted once"></textarea></label>
+<button type="submit" class="button primary">Save this result</button><p id="save-status" class="status" role="status"></p></form>
+<div class="card journal-list"><div class="list-heading"><h3>Saved in this browser</h3><button type="button" class="text-button" id="download-results" disabled>Export CSV</button></div>
+<p class="micro">This is a separate, manual journal. It does not import or change your BEAPP history. Export a copy before clearing browser data.</p>
+<div id="results" aria-live="polite"></div><p id="storage-status" class="status" role="status"></p></div></div></section>
+<section class="ready card"><div><span class="eyebrow">PREFER A READY-MADE SESSION?</span><h2>Let BEAPP choose the exercises.</h2><p>Open Daily Training for a session in the app. Return to the same browser to review your app progress.</p></div><a class="button primary" href="https://brainexerciseapp.com/daily-brain-training/" target="_blank" rel="noopener">Open Daily Training ↗</a></section>
+<section class="section faq"><span class="eyebrow">A FEW PRACTICAL ANSWERS</span><h2>Before you start</h2>
+<details><summary>Do I have to practice every day?</summary><div class="answer"><p>No. The 7-day plan offers choices for each day. Skip a day or take a break when you need one. A session you can finish is a useful starting point.</p></div></details>
+<details><summary>Where are my results stored?</summary><div class="answer"><p>Only in local storage in this browser. The kit does not send journal entries to a server. Private browsing or clearing site data may remove them. Use Export CSV to keep a copy.</p></div></details>
+<details><summary>Why is there no overall score?</summary><div class="answer"><p>Reaction time, recall capacity, and correct answers measure different things. Compare the same exercise under similar conditions. Read accuracy together with speed when both are shown.</p></div></details>
+<details><summary>Is this a medical assessment?</summary><div class="answer"><p>No. These results describe performance in particular tasks. This kit is a planning and note-taking tool. It does not diagnose a condition or promise changes in everyday abilities.</p></div></details>
+</section><noscript><p class="card">Turn on JavaScript to use the planner and journal. You can still <a href="https://brainexerciseapp.com/trainers/">browse the BEAPP trainers</a> or read the <a href="guide.md">written guide</a>.</p></noscript>
+</main><footer class="wrap"><div class="brand"><img src="assets/brand-logo.webp" width="28" height="28" alt=""><span>Brain Exercise App · Practice Kit</span></div><div><a href="https://brainexerciseapp.com/how-results-are-calculated/" target="_blank" rel="noopener">How results are calculated</a><a href="https://github.com/YanTM/beapp-practice-kit">Source & downloads</a></div><p class="micro">A small open-source companion for planning sessions and recording your own notes. Exercises run on brainexerciseapp.com.</p></footer>
+</body></html>
