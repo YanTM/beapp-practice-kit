@@ -1,4 +1,4 @@
-<img src="assets/brand-logo.webp" alt="Brain Exercise App logo" width="44">
+<img src="https://raw.githubusercontent.com/YanTM/beapp-practice-kit/main/assets/brand-logo.webp" alt="Brain Exercise App logo" width="44">
 
 # BEAPP Practice Kit
 
@@ -6,10 +6,10 @@ A small companion for [Brain Exercise App](https://brainexerciseapp.com/).
 Choose a short session, understand the exercise, and keep a note of your result.
 
 **[Open the planner and journal](https://yantm.github.io/beapp-practice-kit/)**
-· [Read the practical guide](guide.md)
+· [Read the practical guide](https://github.com/YanTM/beapp-practice-kit/blob/main/guide.md)
 · [Open BEAPP Daily Training](https://brainexerciseapp.com/daily-brain-training/)
 
-<img src="assets/hero.webp" alt="The BEAPP brain character with four skill areas" width="420">
+<img src="https://raw.githubusercontent.com/YanTM/beapp-practice-kit/main/assets/hero.webp" alt="The BEAPP brain character with four skill areas" width="420">
 
 ## Start in three steps
 
@@ -61,13 +61,22 @@ Results describe performance in specific tasks. This kit is a planning and
 note-taking tool, not a medical assessment or a promise of changes in
 everyday abilities. [How BEAPP results are calculated](https://brainexerciseapp.com/how-results-are-calculated/).
 
-## JavaScript usage
+## Use the npm package
+
+**beapp-practice-planner** is the small JavaScript utility from this kit.
+Use it to add session choices, exercise instructions, or CSV exports to your
+own tool. The npm package includes code and documentation; the ready-to-use
+planner and journal are available through the live link above.
+
+```sh
+npm install beapp-practice-planner
+```
 
 Node.js 20 or newer is required only for development and the utility API.
 No Node.js installation is needed to open the browser kit.
 
 ```js
-const { createSession, createWeek, resultsToCsv } = require('./planner.js');
+const { createSession, createWeek, resultsToCsv } = require('beapp-practice-planner');
 const session = createSession({ minutes: 5, focus: 'memory' });
 console.log(session.tasks.map(task => task.name));
 const week = createWeek({ startDate: '2026-10-06', minutes: 5, focus: 'mixed' });
@@ -77,7 +86,25 @@ const csv = resultsToCsv([{
 }]);
 ```
 
-API reference: [API.md](API.md).
+ES modules and TypeScript can use named imports:
+
+```js
+import { createSession } from 'beapp-practice-planner';
+
+const session = createSession({ minutes: 5, focus: 'mixed' });
+for (const task of session.tasks) {
+  console.log(task.name, task.url, task.steps);
+}
+```
+
+`createSession` picks one task for 2 minutes, two for 5 minutes, and up to
+three for 8 minutes. A focused session cannot contain more tasks than are
+available in that area. `offset` rotates the starting exercise.
+`createWeek` returns seven suggestions; your tool decides when to show them.
+`resultsToCsv` exports manually entered results in each exercise's own units.
+The utility itself does not store entries, contact a server, or import app history.
+
+API reference: [API.md](https://github.com/YanTM/beapp-practice-kit/blob/main/API.md).
 Dates use YYYY-MM-DD; the seven-day schedule uses UTC calendar arithmetic.
 CSV export quotes text and protects against spreadsheet formula interpretation.
 
@@ -96,4 +123,6 @@ There is no build step and no runtime dependency.
 
 New utility code and documentation are MIT licensed.
 BEAPP logos, mascot artwork, and skill icons have separate
-[brand asset terms](assets/NOTICE.md).
+[brand asset terms](https://github.com/YanTM/beapp-practice-kit/blob/main/assets/NOTICE.md).
+Brand images are displayed from the public repository and are not bundled
+in the npm package.

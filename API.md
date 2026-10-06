@@ -1,7 +1,9 @@
 # Utility API
 
-Import with require('./planner.js'), or load planner.js as a normal
-browser script and use window.BeappPractice.
+Install with npm install beapp-practice-planner.
+Import with require('beapp-practice-planner') or named ES module imports.
+TypeScript declarations are included for both module formats.
+For a normal browser script, load planner.js and use window.BeappPractice.
 
 | Function | Input | Output |
 | --- | --- | --- |
